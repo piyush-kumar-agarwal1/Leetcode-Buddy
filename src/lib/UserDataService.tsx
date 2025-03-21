@@ -85,7 +85,7 @@ function saveUserDataLocally(userData: UserData): void {
 export function downloadExtension(): void {
   try {
     // Path to the extension ZIP in the public folder
-    const zipPath = "/Downloads/Leetcode-Buddy.zip";
+    const zipPath = "/Downloads/leetcode-buddy.zip";
 
     // Create a direct download link
     const link = document.createElement("a");
@@ -97,6 +97,6 @@ export function downloadExtension(): void {
   } catch (error) {
     console.error("Download error:", error);
     // Fallback - open in new tab if download fails
-    window.open("/Downloads/Leetcode-Buddy.zip", "_blank");
+    window.open("/Downloads/leetcode-buddy.zip", "_blank");
   }
 }
