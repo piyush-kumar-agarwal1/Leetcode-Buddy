@@ -1,0 +1,25 @@
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import ProblemSection from "@/components/ProblemSection";
+import Features from "@/components/Features";
+import HowItWorks from "@/components/HowItWorks";
+import Testimonials from "@/components/Testimonials";
+import CTA from "@/components/CTA";
+import Footer from "@/components/Footer";
+
+const Index = () => {
+  return (
+    <div className="min-h-screen bg-leetblue-900 text-white overflow-x-hidden">
+      <Navbar />
+      <Hero />
+      <ProblemSection />
+      <Features />
+      <HowItWorks />
+      <Testimonials />
+      <CTA />
+      <Footer />
+    </div>
+  );
+};
+
+export default Index;

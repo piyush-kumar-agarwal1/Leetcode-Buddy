@@ -1,0 +1,142 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 218 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 187 95% 42%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 200 98% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 21%;
+    --input: 217 33% 21%;
+    --ring: 263 70% 50%;
+
+    --radius: 0.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    @apply bg-leetblue-900 text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  * {
+    @apply border-border selection:bg-leetpurple-600/20 selection:text-leetpurple-200;
+  }
+
+  ::selection {
+    @apply bg-leetpurple-600/20 text-leetpurple-200;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-leetblue-800/70 backdrop-blur-md border border-leetblue-700 shadow-xl;
+  }
+  
+  .glass-button {
+    @apply bg-leetpurple-600/90 hover:bg-leetpurple-600 backdrop-blur-md border border-leetpurple-500 shadow-md hover:shadow-glow transition-all duration-300;
+  }
+  
+  .amber-button {
+    @apply bg-leetamber-500/90 hover:bg-leetamber-500 text-leetblue-950 font-medium backdrop-blur-md border border-leetamber-400 shadow-md hover:shadow-[0_0_15px_rgba(245,158,11,0.5)] transition-all duration-300;
+  }
+
+  .typing-container {
+    @apply inline-block overflow-hidden whitespace-nowrap border-r-2 border-foreground;
+    animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+  }
+
+  .grid-bg {
+    background-size: 20px 20px;
+    background-image: 
+      linear-gradient(to right, rgba(30, 41, 59, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(30, 41, 59, 0.1) 1px, transparent 1px);
+  }
+  
+  .scroll-animation {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .scroll-animation.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .scroll-animation-delay-1 {
+    transition-delay: 0.1s;
+  }
+  
+  .scroll-animation-delay-2 {
+    transition-delay: 0.2s;
+  }
+  
+  .scroll-animation-delay-3 {
+    transition-delay: 0.3s;
+  }
+  
+  .scroll-animation-delay-4 {
+    transition-delay: 0.4s;
+  }
+  
+  .scroll-animation-delay-5 {
+    transition-delay: 0.5s;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-leetpurple-400 via-leetteal-400 to-leetpurple-500 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-purple {
+    @apply bg-gradient-to-r from-leetpurple-400 to-leetpurple-600 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-teal {
+    @apply bg-gradient-to-r from-leetteal-400 to-leetteal-600 bg-clip-text text-transparent;
+  }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s ease-in-out infinite;
+}
