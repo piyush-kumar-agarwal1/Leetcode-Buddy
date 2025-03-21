@@ -85,18 +85,18 @@ function saveUserDataLocally(userData: UserData): void {
 export function downloadExtension(): void {
   try {
     // Path to the extension ZIP in the public folder
-    const zipPath = "/Downloads/leetcode-buddy.zip";
+    const zipPath = "/Leetcode-Buddy.zip";
 
     // Create a direct download link
     const link = document.createElement("a");
     link.href = zipPath;
-    link.download = "leetcode-buddy.zip";
+    link.download = "Leetcode-Buddy.zip";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   } catch (error) {
     console.error("Download error:", error);
     // Fallback - open in new tab if download fails
-    window.open("/Downloads/leetcode-buddy.zip", "_blank");
+    window.open("/Leetcode-Buddy.zip", "_blank");
   }
 }
