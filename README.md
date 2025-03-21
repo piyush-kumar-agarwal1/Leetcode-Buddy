@@ -1,45 +1,5 @@
 # Welcome to your Leetcode Buddy Landing Page
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
 ## What technologies are used for this project?
 
 This project is built with:
@@ -49,9 +9,44 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+- Firebase (Firestore)
+
+## How to set up Firebase
+
+1. Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
+2. Enable Firestore Database
+3. Update your Firestore rules to allow write access:
+   ```
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /users/{userId} {
+         allow create: if true;
+         allow read, update, delete: if false;
+       }
+     }
+   }
+   ```
+4. Copy your Firebase configuration to `.env` file
+
+## Setting up environment variables
+
+1. Copy `.env.example` to `.env.local` for local development
+2. For production deployment, set these environment variables in your hosting platform (Vercel, Netlify, etc.)
 
 ## How can I deploy this project?
 
-Hosting URL:
+### Deploying to Vercel
 
-If you want to deploy your project under your own domain, you can use services like Netlify, Vercel, or GitHub Pages.
+1. Push your code to a GitHub repository
+2. Connect your repository to Vercel
+3. Add your environment variables in the Vercel project settings
+4. Deploy!
+
+### Other Hosting Options
+
+You can also deploy this project using:
+
+- Netlify
+- GitHub Pages
+- Firebase Hosting

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import logo from '../assets/icon128.png'; // Add this import
+import logo from '../assets/icon128.png';
 
 // Define the problem and hints
 const problemTitle = "Two Sum";
@@ -98,7 +98,7 @@ export default function CodeAnimation() {
       
       if (parts.length >= 3) {
         // Get the language and code
-        let langMatch = parts[1].match(/^(\w+)\n/);
+        const langMatch = parts[1].match(/^(\w+)\n/);
         let lang = langMatch ? langMatch[1] : '';
         let code = langMatch ? parts[1].substring(langMatch[0].length) : parts[1];
         
@@ -116,7 +116,7 @@ export default function CodeAnimation() {
             {parts[0] && <div className="text-sm mb-2">{parts[0]}</div>}
             <div className="bg-leetblue-900 p-3 rounded-md font-mono text-white overflow-x-auto">
               {/* No complex highlighting, just styled pre block */}
-              <pre className="whitespace-pre-wrap break-all">
+              <pre className="whitespace-pre overflow-x-auto">
                 {code}
               </pre>
             </div>
@@ -130,74 +130,77 @@ export default function CodeAnimation() {
   };
 
   return (
-    <div className="glass-card rounded-lg p-4 font-mono text-sm max-w-lg w-full overflow-hidden shadow-xl">
-      {/* Header with extension styling */}
-      <div className="flex items-center justify-between gap-2 mb-3 border-b border-leetblue-700 pb-2">
-        <div className="flex items-center">
-          <div className="w-8 h-8  rounded-md flex items-center justify-center mr-2">
-            <img src={logo} alt="LeetCode Buddy" className="w-6 h-6" />
-          </div>
-          <div className="text-sm text-white font-medium">LeetCode Buddy</div>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-leetamber-500"></div>
-          <div className="w-3 h-3 rounded-full bg-leetteal-500"></div>
-          <div className="w-3 h-3 rounded-full bg-leetpurple-500"></div>
-        </div>
-      </div>
-      
-      {/* Problem info */}
-      <div className="mb-4 bg-leetblue-800/50 p-3 rounded-md">
-        <div className="font-semibold mb-1 text-leetamber-400">{problemTitle}</div>
-        <div className="text-xs text-gray-300">{problemDescription}</div>
-      </div>
-      
-      {/* Chat/hint interface - Fixed scrolling behavior with containerRef */}
-      <div 
-        ref={containerRef} 
-        className="overflow-y-auto overflow-x-hidden space-y-4 h-[280px] mb-4 pr-2"
-      >
-        {messages.map((message, idx) => (
-          <div 
-            key={idx} 
-            className="flex justify-start"
-          >
-            <div 
-              className={`rounded-lg px-3 py-2 max-w-[95%] ${
-                message.type === "solution" 
-                  ? "bg-leetpurple-900/50 border border-leetpurple-700/50" 
-                  : "bg-leetblue-700/80"
-              } text-gray-200`}
-            >
-              {formatMessage(message.text)}
-              {idx === messages.length - 1 && showCursor && (
-                <span className="inline-block ml-0.5 h-4 w-0.5 bg-white animate-blink"></span>
-              )}
+    <div className="w-full h-full flex justify-center items-center">
+      <div className="glass-card rounded-lg p-2 sm:p-4 font-mono text-xs sm:text-sm w-full max-w-[90vw] sm:max-w-md md:max-w-lg overflow-hidden shadow-xl">
+        {/* Header with extension styling */}
+        <div className="flex items-center justify-between gap-2 mb-2 sm:mb-3 border-b border-leetblue-700 pb-2">
+          <div className="flex items-center">
+            <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md flex items-center justify-center mr-2">
+              <img src={logo} alt="LeetCode Buddy" className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
+            <div className="text-xs sm:text-sm text-white font-medium">LeetCode Buddy</div>
           </div>
-        ))}
-        <div ref={messagesEndRef} />
-      </div>
-      
-      {/* Action buttons */}
-      <div className="border-t border-leetblue-700 pt-3 flex gap-2 items-center">
-        {currentIndex < hints.length && (
-          <button 
-            onClick={getNextHint}
-            className="bg-leetamber-500 hover:bg-leetamber-600 text-black font-medium px-4 py-1.5 rounded text-xs transition-colors"
-          >
-            Get Hint ({currentIndex}/{hints.length})
-          </button>
-        )}
+          <div className="flex items-center gap-1 sm:gap-2">
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-leetamber-500"></div>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-leetteal-500"></div>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-leetpurple-500"></div>
+          </div>
+        </div>
         
-        {currentIndex >= hints.length && !messages.some(m => m.type === "solution") && (
-          <button 
-            onClick={getSolution}
-            className="bg-leetpurple-500 hover:bg-leetpurple-600 text-white font-medium px-4 py-1.5 rounded text-xs transition-colors"
-          >
-            Get C++ Solution
-          </button>
-        )}
+        {/* Problem info */}
+        <div className="mb-3 sm:mb-4 bg-leetblue-800/50 p-2 sm:p-3 rounded-md">
+          <div className="font-semibold mb-1 text-leetamber-400">{problemTitle}</div>
+          <div className="text-xs text-gray-300">{problemDescription}</div>
+        </div>
+        
+        {/* Chat/hint interface - Responsive height */}
+        <div 
+          ref={containerRef} 
+          className="overflow-y-auto overflow-x-hidden space-y-3 sm:space-y-4 h-[180px] sm:h-[220px] md:h-[280px] mb-3 sm:mb-4 pr-2"
+          style={{ scrollbarWidth: 'thin' }}
+        >
+          {messages.map((message, idx) => (
+            <div 
+              key={idx} 
+              className="flex justify-start"
+            >
+              <div 
+                className={`rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 max-w-[95%] ${
+                  message.type === "solution" 
+                    ? "bg-leetpurple-900/50 border border-leetpurple-700/50" 
+                    : "bg-leetblue-700/80"
+                } text-gray-200`}
+              >
+                {formatMessage(message.text)}
+                {idx === messages.length - 1 && showCursor && (
+                  <span className="inline-block ml-0.5 h-3 sm:h-4 w-0.5 bg-white animate-blink"></span>
+                )}
+              </div>
+            </div>
+          ))}
+          <div ref={messagesEndRef} />
+        </div>
+        
+        {/* Action buttons */}
+        <div className="border-t border-leetblue-700 pt-2 sm:pt-3 flex gap-2 items-center">
+          {currentIndex < hints.length && (
+            <button 
+              onClick={getNextHint}
+              className="bg-leetamber-500 hover:bg-leetamber-600 text-black font-medium px-3 sm:px-4 py-1 sm:py-1.5 rounded text-xs transition-colors"
+            >
+              Get Hint ({currentIndex}/{hints.length})
+            </button>
+          )}
+          
+          {currentIndex >= hints.length && !messages.some(m => m.type === "solution") && (
+            <button 
+              onClick={getSolution}
+              className="bg-leetpurple-500 hover:bg-leetpurple-600 text-white font-medium px-3 sm:px-4 py-1 sm:py-1.5 rounded text-xs transition-colors"
+            >
+              Get C++ Solution
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

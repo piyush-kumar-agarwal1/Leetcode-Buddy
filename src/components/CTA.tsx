@@ -1,70 +1,99 @@
-
-import AnimatedElement from "./AnimatedElement";
+import { useState } from 'react';
+import AnimatedElement from './AnimatedElement';
+import DownloadForm, { UserData } from './DownloadForm';
+import { submitUserData, downloadExtension } from '../lib/UserDataService';
+import { useToast } from '../hooks/use-toast';
 
 export default function CTA() {
+  const [showForm, setShowForm] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+  
+  const handleFormSubmit = async (userData: UserData) => {
+    try {
+      setIsSubmitting(true);
+      
+      // Submit user data using the service
+      const success = await submitUserData(userData);
+      
+      if (success) {
+        toast({
+          title: "Success!",
+          description: "Thank you for registering. Your download will begin shortly.",
+        });
+      }
+      
+      // Trigger the download using the service
+      downloadExtension();
+      
+      // Close the form
+      setShowForm(false);
+    } catch (error) {
+      console.error('Error during form submission:', error);
+      toast({
+        title: "Error",
+        description: "There was a problem processing your request. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+    const handleDownloadClick = () => {
+    // Always show the form
+    setShowForm(true);
+  };
+
   return (
     <section id="download" className="py-20 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-leetblue-900 via-leetblue-900 to-leetpurple-900/20 z-0"></div>
       <div className="absolute inset-0 grid-bg opacity-10 z-0"></div>
+      <div className="absolute top-0 left-0 w-72 h-72 bg-leetpurple-600/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-leetteal-600/10 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <AnimatedElement>
-            <div className="glass-card rounded-xl p-8 md:p-12 backdrop-blur-xl bg-leetblue-800/40 border border-leetblue-700/50">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Ready to <span className="text-gradient">Accelerate</span> Your LeetCode Journey?
-              </h2>
-              <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                Join thousands of developers who have transformed their coding practice and interview preparation with LeetCode Buddy.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <a
-                  href="#"
-                  className="amber-button px-8 py-3 rounded-md text-center text-base font-semibold flex items-center justify-center gap-2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM9.8 17.3L5.7 13.2L7.1 11.8L9.8 14.5L16.9 7.4L18.3 8.8L9.8 17.3Z" fill="currentColor"/>
-                  </svg>
-                  Install on Chrome
-                </a>
-                <a
-                  href="#"
-                  className="glass-button px-8 py-3 rounded-md text-center text-base font-medium flex items-center justify-center gap-2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM10 17L5 12L7 10L10 13L17 6L19 8L10 17Z" fill="currentColor"/>
-                  </svg>
-                  Firefox Add-on
-                </a>
-                <a
-                  href="#"
-                  className="glass-button px-8 py-3 rounded-md text-center text-base font-medium flex items-center justify-center gap-2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM10 17L5 12L7 10L10 13L17 6L19 8L10 17Z" fill="currentColor"/>
-                  </svg>
-                  Edge Add-on
-                </a>
-              </div>
-              
-              <div className="flex items-center justify-center gap-3 text-sm text-gray-400">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12 6V12L16 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <span>Installation takes less than 30 seconds</span>
-              </div>
-            </div>
-          </AnimatedElement>
+        <AnimatedElement>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to <span className="text-gradient">Level Up</span> Your LeetCode Experience?
+            </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto mb-8">
+              Install the LeetCode Buddy extension and transform how you practice coding problems
+            </p>
+            
+            <button
+              onClick={handleDownloadClick}
+              className="amber-button px-8 py-4 rounded-md text-lg flex items-center gap-3 mx-auto"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download Extension
+            </button>
+          </div>
+        </AnimatedElement>
+        
+        <div className="max-w-2xl mx-auto p-6 bg-leetblue-800/50 rounded-lg">
+          <h3 className="text-xl font-medium mb-4">Installation Instructions:</h3>
+          <ol className="list-decimal list-inside space-y-3 text-gray-300">
+            <li>Download the extension package using the button above</li>
+            <li>Open Chrome and navigate to <code className="bg-leetblue-700 px-2 py-0.5 rounded">chrome://extensions/</code></li>
+            <li>Enable "Developer mode" using the toggle in the top-right corner</li>
+            <li>Unzip the downloaded package to a folder on your computer</li>
+            <li>Click "Load unpacked" and select the unzipped folder</li>
+            <li>LeetCode Buddy extension should now appear in your extensions list</li>
+          </ol>
         </div>
       </div>
+      
+      {showForm && (
+        <DownloadForm 
+          onSubmit={handleFormSubmit} 
+          onClose={() => setShowForm(false)} 
+        />
+      )}
     </section>
   );
 }

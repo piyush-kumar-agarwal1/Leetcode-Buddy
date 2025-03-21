@@ -1,37 +1,64 @@
-
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import AnimatedElement from "./AnimatedElement";
 
 const testimonials = [
   {
-    name: "Sarah Chen",
-    role: "Software Engineer at Google",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-    content: "LeetCode Buddy transformed my interview prep. The hints are perfectly balanced—they guide you toward the solution without giving everything away. I credit this tool with helping me land my dream job at Google."
+    name: "Aditya Goyal",
+    role: "Backend Engineer",
+    avatar: "src/assets/1668180769486.jpeg",
+    content: "LeetCode Buddy transformed my interview prep. The hints are perfectly balanced—they guide you toward the solution without giving everything away. I credit this tool with helping me solve 400+ questions."
   },
   {
-    name: "Michael Johnson",
-    role: "CS Student, Stanford University",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    name: "Verdan Shandilya",
+    role: "Frontend Developer",
+    avatar: "src/assets/1668190202637.jpeg",
     content: "As a CS student, this extension has been invaluable. The ability to get hints when I'm stuck and then receive optimization suggestions has improved my problem-solving skills dramatically. My algorithms professor even noticed my improvement!"
   },
   {
-    name: "Priya Patel",
-    role: "Senior Developer, Spotify",
-    avatar: "https://randomuser.me/api/portraits/women/63.jpg",
+    name: "Shakshi Agrawal",
+    role: "Data Scientist",
+    avatar: "src/assets/1669404499429.jpeg",
     content: "I was skeptical about coding assistants, but LeetCode Buddy strikes the perfect balance. It's like having a mentor who knows when to step in and when to let you struggle productively. The progress tracking feature keeps me motivated."
   },
   {
-    name: "David Kim",
-    role: "Frontend Engineer, Meta",
-    avatar: "https://randomuser.me/api/portraits/men/11.jpg",
+    name: "Pallavi Agrawal",
+    role: "Quality Assuarance Engineer",
+    avatar: "src/assets/1708849308938.jpeg",
     content: "The explanation feature is incredible. After solving a problem, I can review detailed breakdowns of each solution approach. This has deepened my understanding of algorithms in a way textbooks never could."
   }
 ];
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  
+  // Function to advance to the next testimonial
+  const advanceTestimonial = useCallback(() => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  }, []);
+  
+  // Set up auto-rotation with the timer
+  useEffect(() => {
+    // Don't auto-rotate if paused
+    if (isPaused) return;
+    
+    const interval = setInterval(() => {
+      advanceTestimonial();
+    }, 3000); // 2 seconds interval
+    
+    // Cleanup function to clear the interval when component unmounts or dependencies change
+    return () => clearInterval(interval);
+  }, [advanceTestimonial, isPaused]);
+  
+  // Function to handle manual navigation
+  const goToTestimonial = (index: number) => {
+    setActiveIndex(index);
+    // Pause auto-rotation briefly when user manually navigates
+    setIsPaused(true);
+    // Resume auto-rotation after 5 seconds of inactivity
+    setTimeout(() => setIsPaused(false), 5000);
+  };
 
   return (
     <section id="testimonials" className="py-20 relative">
@@ -56,7 +83,12 @@ export default function Testimonials() {
 
         <div className="max-w-4xl mx-auto">
           <AnimatedElement delay={2}>
-            <div className="glass-card rounded-xl p-6 md:p-8 mb-8">
+            <div 
+              className="glass-card rounded-xl p-6 md:p-8 mb-8"
+              // Pause auto-rotation when user hovers over testimonial
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+            >
               <div className="flex items-center gap-4 mb-6">
                 <img
                   src={testimonials[activeIndex].avatar}
@@ -83,7 +115,7 @@ export default function Testimonials() {
                       ? "bg-leetpurple-500 w-8"
                       : "bg-leetblue-700 hover:bg-leetblue-600"
                   )}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => goToTestimonial(index)}
                   aria-label={`View testimonial ${index + 1}`}
                 />
               ))}
