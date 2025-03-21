@@ -36,8 +36,8 @@ export default function ProblemSection() {
         <AnimatedElement>
           <div className="text-center mb-16">
             <div className="mb-4 inline-block">
-              <span className="px-3 py-1 rounded-full bg-leetteal-600/20 border border-leetteal-500/30 text-sm font-medium">
-                THE PROBLEM
+            <span className="px-3 py-1 rounded-full bg-leetpurple-600/20 border border-leetpurple-500/30 text-sm font-medium">
+                The Problem
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
