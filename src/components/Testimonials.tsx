@@ -6,25 +6,25 @@ const testimonials = [
   {
     name: "Aditya Goyal",
     role: "Backend Engineer",
-    avatar: "src/assets/1668180769486.jpeg",
+    avatar: "/1668180769486.jpeg",
     content: "LeetCode Buddy transformed my interview prep. The hints are perfectly balanced—they guide you toward the solution without giving everything away. I credit this tool with helping me solve 400+ questions."
   },
   {
     name: "Verdan Shandilya",
     role: "Frontend Developer",
-    avatar: "src/assets/1668190202637.jpeg",
+    avatar: "/1668190202637.jpeg",
     content: "As a CS student, this extension has been invaluable. The ability to get hints when I'm stuck and then receive optimization suggestions has improved my problem-solving skills dramatically. My algorithms professor even noticed my improvement!"
   },
   {
     name: "Shakshi Agrawal",
     role: "Data Scientist",
-    avatar: "src/assets/1669404499429.jpeg",
+    avatar: "/1669404499429.jpeg",
     content: "I was skeptical about coding assistants, but LeetCode Buddy strikes the perfect balance. It's like having a mentor who knows when to step in and when to let you struggle productively. The progress tracking feature keeps me motivated."
   },
   {
     name: "Pallavi Agrawal",
     role: "Quality Assuarance Engineer",
-    avatar: "src/assets/1708849308938.jpeg",
+    avatar: "/1708849308938.jpeg",
     content: "The explanation feature is incredible. After solving a problem, I can review detailed breakdowns of each solution approach. This has deepened my understanding of algorithms in a way textbooks never could."
   }
 ];
