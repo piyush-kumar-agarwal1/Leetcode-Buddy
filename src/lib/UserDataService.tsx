@@ -91,7 +91,6 @@ export function downloadExtension(): void {
     const link = document.createElement("a");
     link.href = zipPath;
     link.download = "Leetcode-Buddy.zip";
-    link.target = "_blank"; // Open in new tab for reliability
     link.rel = "noopener noreferrer"; 
     document.body.appendChild(link);
     link.click();
