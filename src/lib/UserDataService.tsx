@@ -85,7 +85,7 @@ function saveUserDataLocally(userData: UserData): void {
 export function downloadExtension(): void {
   try {
     // Your GitHub Release URL
-    const zipPath = "https://github.com/piyush-kumar-agarwal1/Leetcode-Buddy/releases/download/v2.0.0/Leetcode-Buddy.zip";
+    const zipPath = "https://leetcode-buddyy.vercel.app/Leetcode-Buddy.zip";
 
     // Create a direct download link
     const link = document.createElement("a");
@@ -98,6 +98,6 @@ export function downloadExtension(): void {
   } catch (error) {
     console.error("Download error:", error);
     // Fallback - open in new tab if download fails
-    window.open("https://github.com/piyush-kumar-agarwal1/Leetcode-Buddy/releases/download/v2.0.0/Leetcode-Buddy.zip", "_blank");
+    window.open("https://leetcode-buddyy.vercel.app/Leetcode-Buddy.zip", "_blank");
   }
 }
