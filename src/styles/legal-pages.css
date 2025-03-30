@@ -1,0 +1,43 @@
+/* Add subtle hover effects to sections */
+.glass-card section {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.glass-card section:hover {
+  background-color: rgba(93, 63, 211, 0.05);
+  transform: translateX(4px);
+}
+
+/* Animate the list bullets */
+.glass-card ul li span.text-leetpurple-400 {
+  transition: transform 0.2s ease;
+}
+
+.glass-card ul li:hover span.text-leetpurple-400 {
+  transform: scale(1.2);
+}
+
+/* Improve link hover states */
+.glass-card a {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.glass-card a:hover {
+  color: #a5b4fc;
+}
+
+.glass-card a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -1px;
+  left: 0;
+  background-color: #a5b4fc;
+  transition: width 0.3s ease;
+}
+
+.glass-card a:hover:after {
+  width: 100%;
+}

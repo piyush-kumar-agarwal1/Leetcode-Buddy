@@ -1,55 +1,113 @@
 import PageLayout from "../components/PageLayout";
-import logo from '../assets/icon128.png';
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function About() {
   return (
     <PageLayout 
       title="About LeetCode Buddy" 
-      subtitle="Learn about our mission to make technical interview preparation more accessible and effective."
+      subtitle="The story behind this project"
     >
-      <div className="prose prose-invert max-w-none">
-        <div className="flex justify-center mb-8">
-          <img src={logo} alt="LeetCode Buddy" className="w-24 h-24" />
+      <div className="max-w-4xl mx-auto space-y-12">
+        {/* Mission Section */}
+        <div className="glass-card p-8 rounded-lg">
+          <h2 className="text-2xl font-bold text-leetpurple-300 mb-6">The Mission</h2>
+          <p className="text-gray-300 leading-relaxed mb-4">
+            LeetCode Buddy makes coding interview preparation more effective and less frustrating.
+            I believe that learning to solve algorithmic problems should be a guided process that helps developers 
+            build true understanding rather than memorizing solutions.
+          </p>
+          <p className="text-gray-300 leading-relaxed">
+            This AI-powered browser extension is designed to support developers at every skill level, providing
+            the right amount of guidance when you need it most - without spoiling the learning experience.
+          </p>
         </div>
-
-        <h2>Our Mission</h2>
-        <p>
-          At LeetCode Buddy, we're driven by a simple mission: to make technical interview preparation 
-          more accessible, efficient, and effective for developers of all skill levels. We believe that 
-          with the right tools and guidance, anyone can master algorithmic problem-solving.
-        </p>
-
-        <h2>Our Story</h2>
-        <p>
-          LeetCode Buddy was born out of frustration. As developers preparing for technical interviews ourselves, 
-          we found that existing resources either gave away complete solutions (robbing us of the learning experience) 
-          or left us completely stuck (wasting valuable preparation time).
-        </p>
-
-        <p>
-          We created LeetCode Buddy to be the assistant we wished we had: one that provides just enough guidance 
-          to keep you moving forward, while still letting you experience the satisfaction and learning that comes 
-          from solving problems yourself.
-        </p>
-
-        <h2>Our Team</h2>
-        <p>
-          We're a small team of engineers who are passionate about education, algorithms, and making technology 
-          more accessible. With backgrounds in top tech companies and computer science education, we bring a unique 
-          perspective to the challenge of technical interview preparation.
-        </p>
-
-        <h2>Our Values</h2>
-        <ul>
-          <li><strong>Learning Over Memorization:</strong> We believe in understanding concepts, not just memorizing solutions.</li>
-          <li><strong>Guidance Over Solutions:</strong> We provide hints and guidance rather than complete answers.</li>
-          <li><strong>Accessibility:</strong> We're committed to making quality interview preparation accessible to everyone.</li>
-          <li><strong>Continuous Improvement:</strong> We're constantly refining our platform based on user feedback and advances in technology.</li>
-        </ul>
-
-        <p className="mt-8 text-center">
-          Join us on our mission to transform how developers prepare for technical interviews.
-        </p>
+        
+        {/* Creator Section */}
+        <div className="glass-card p-8 rounded-lg">
+          <h2 className="text-2xl font-bold text-leetpurple-300 mb-6">The Creator</h2>
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+            <div className="w-40 h-40 rounded-full bg-leetpurple-600/20 overflow-hidden flex-shrink-0">
+              <img src="/team-founder.jpg" alt="Piyush Kumar Agarwal" className="w-full h-full object-cover" />
+            </div>
+            
+            <div>
+              <h3 className="text-2xl font-semibold mb-2 text-center md:text-left">Piyush Kumar Agarwal</h3>
+              <p className="text-leetpurple-400 mb-4 text-center md:text-left">Full-Stack Developer</p>
+              
+              <p className="text-gray-300 mb-4 leading-relaxed">
+                I'm a passionate software developer with expertise in React, TypeScript, and AI integration. 
+                I created LeetCode Buddy to solve a problem I personally experienced while preparing for technical interviews.
+              </p>
+              
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                With a background in full-stack development and a keen interest in developer tools, 
+                I designed LeetCode Buddy to be the assistant I wished I had during my own coding practice.
+              </p>
+              
+              <div className="flex gap-4 justify-center md:justify-start">
+                <a href="https://github.com/piyush-kumar-agarwal1" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                  <Github size={24} />
+                </a>
+                <a href="https://linkedin.com/in/your-profile" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                  <Linkedin size={24} />
+                </a>
+                <a href="mailto:chatwithapiyush@example.com" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                  <Mail size={24} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Story Section */}
+        <div className="glass-card p-8 rounded-lg">
+          <h2 className="text-2xl font-bold text-leetpurple-300 mb-6">The Story</h2>
+          <p className="text-gray-300 leading-relaxed mb-4">
+            LeetCode Buddy began as my personal project in early 2024. While preparing for technical interviews,
+            I found myself constantly searching for hints when stuck on LeetCode problems, but was 
+            frustrated by solutions that gave away too much information.
+          </p>
+          <p className="text-gray-300 leading-relaxed mb-4">
+            The idea for LeetCode Buddy was born: a tool that would provide progressive hints that guide
+            you toward the solution without spoiling the problem. After months of solo development and 
+            testing with fellow developers, I launched LeetCode Buddy in March 2025.
+          </p>
+          <p className="text-gray-300 leading-relaxed">
+            Today, this extension helps developers prepare more effectively for technical interviews
+            while learning valuable problem-solving skills that will serve them throughout their careers.
+          </p>
+        </div>
+        
+        {/* Values Section */}
+        <div className="glass-card p-8 rounded-lg">
+          <h2 className="text-2xl font-bold text-leetpurple-300 mb-6">Core Values</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-leetblue-800/40 p-5 rounded-lg">
+              <h3 className="text-xl font-semibold mb-3 text-leetteal-400">Learning First</h3>
+              <p className="text-gray-300 text-sm">
+                I prioritize real learning over quick answers. This tool is designed to help you truly understand concepts.
+              </p>
+            </div>
+            <div className="bg-leetblue-800/40 p-5 rounded-lg">
+              <h3 className="text-xl font-semibold mb-3 text-leetteal-400">Ethical AI</h3>
+              <p className="text-gray-300 text-sm">
+                I believe in building AI that enhances human capabilities without replacing the critical thinking process.
+              </p>
+            </div>
+            <div className="bg-leetblue-800/40 p-5 rounded-lg">
+              <h3 className="text-xl font-semibold mb-3 text-leetteal-400">Accessibility</h3>
+              <p className="text-gray-300 text-sm">
+                Quality learning tools should be accessible to developers at all stages of their journey.
+              </p>
+            </div>
+            <div className="bg-leetblue-800/40 p-5 rounded-lg">
+              <h3 className="text-xl font-semibold mb-3 text-leetteal-400">Personal Touch</h3>
+              <p className="text-gray-300 text-sm">
+                As a solo developer, I've built this tool with care and attention to detail, solving a problem I experienced firsthand.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </PageLayout>
   );
