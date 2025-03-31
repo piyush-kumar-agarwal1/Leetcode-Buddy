@@ -317,7 +317,7 @@ export default function Blog() {
                     </a>
 
                     <div className="mt-6 pt-4 border-t border-leetblue-700">
-                      <h4 className="text-sm font-medium mb-2 text-gray-400">Related Topics</h4>
+                      <h3 className="text-sm font-medium mb-2 text-gray-400">Related Topics</h3>
                       <div className="space-y-1">
                         {featuredPost.relatedTopics.map((topic, i) => (
                           <Link 
@@ -411,12 +411,12 @@ export default function Blog() {
                       rel="noopener noreferrer"
                       className="group"
                     >
-                      <h3 className="text-xl font-semibold mb-2 group-hover:text-leetamber-400 transition-colors flex items-center gap-2">
+                      <h2 className="text-xl font-semibold mb-2 group-hover:text-leetamber-400 transition-colors flex items-center gap-2">
                         <span className="inline-flex items-center justify-center p-1 bg-leetblue-800/70 rounded-md text-leetamber-400">
                           {post.icon && <post.icon size={16} />}
                         </span>
                         {post.title}
-                      </h3>
+                      </h2>
                     </a>
                     
                     <p className="text-gray-300 text-sm mb-4">{post.excerpt}</p>
@@ -454,7 +454,7 @@ export default function Blog() {
                     </div>
                     
                     <div className="mt-6 pt-4 border-t border-leetblue-700">
-                      <h4 className="text-sm font-medium mb-2 text-gray-400">Related Topics</h4>
+                      <h3 className="text-sm font-medium mb-2 text-gray-400">Related Topics</h3>
                       <div className="space-y-1">
                         {post.relatedTopics.map((topic, i) => (
                           <Link 

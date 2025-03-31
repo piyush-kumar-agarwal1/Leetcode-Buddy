@@ -107,8 +107,8 @@ export default function FAQ() {
         <Accordion type="single" collapsible className="w-full space-y-2">
           {filteredFaqs.map((faq, index) => (
             <AccordionItem key={index} value={`item-${index}`} className="border border-leetblue-700 rounded-md overflow-hidden mb-3">
-              <AccordionTrigger className="px-4 py-3 hover:bg-leetblue-800/50 hover:no-underline">
-                {faq.question}
+              <AccordionTrigger className="px-4 py-3 hover:bg-leetblue-800/40 text-left">
+                <h2 className="text-base font-medium">{faq.question}</h2>
               </AccordionTrigger>
               <AccordionContent className="px-4 py-3 bg-leetblue-800/30 text-gray-300">
                 {faq.answer}

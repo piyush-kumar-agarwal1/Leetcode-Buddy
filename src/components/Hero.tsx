@@ -1,6 +1,7 @@
 import { ArrowDown } from "lucide-react";
 import CodeAnimation from "./CodeAnimation";
 import AnimatedElement from "./AnimatedElement";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -23,7 +24,7 @@ export default function Hero() {
               </div>
             </AnimatedElement>
 
-            <AnimatedElement delay={1} animation="fade-in-up">
+            <AnimatedElement delay={1} animation="fade-in">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
                 LeetCode Buddy: AI-Powered <span className="text-gradient">Coding Assistant</span>
               </h1>
@@ -66,6 +67,21 @@ export default function Hero() {
                 <span>Works with all major browsers</span>
               </div>
             </AnimatedElement>
+
+            <div className="mt-6 flex flex-wrap gap-4 justify-center md:justify-start">
+              <Link to="/documentation" className="text-leetpurple-400 hover:text-leetpurple-300 transition-colors">
+                Read Documentation →
+              </Link>
+              <Link to="/tutorials" className="text-leetpurple-400 hover:text-leetpurple-300 transition-colors">
+                View Tutorials →
+              </Link>
+              <Link to="/blog" className="text-leetpurple-400 hover:text-leetpurple-300 transition-colors">
+                Explore Blog →
+              </Link>
+              <Link to="/faq" className="text-leetpurple-400 hover:text-leetpurple-300 transition-colors">
+                Common Questions →
+              </Link>
+            </div>
           </div>
 
           {/* Right animation column */}
