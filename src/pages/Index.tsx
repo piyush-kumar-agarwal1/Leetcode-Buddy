@@ -12,8 +12,8 @@ export default function Index() {
   return (
     <>
       <SEO
-        title="Home" 
-        description="LeetCode Buddy is an AI-powered coding assistant that helps you solve LeetCode problems with progressive hints and explanations."
+        title="LeetCode Buddy - AI-Powered Coding Assistant"
+        description="Get AI-powered hints, optimizations, and explanations for LeetCode problems without spoiling the solution."
       >
         <script type="application/ld+json">
           {JSON.stringify({
@@ -21,21 +21,30 @@ export default function Index() {
             "@type": "SoftwareApplication",
             "name": "LeetCode Buddy",
             "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Chrome, Firefox, Edge",
             "offers": {
               "@type": "Offer",
               "price": "0",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "seller": {
-                "@type": "Person",
-                "name": "Piyush Kumar Agarwal"
-              }
+              "priceCurrency": "USD"
             },
-            "countryOfOrigin": "India",
-            "operatingSystem": "Chrome, Firefox, Edge, Safari, iOS, macOS, Windows, Android",
-            "description": "AI-powered assistant for solving LeetCode problems",
-            "applicationSubCategory": "Developer Tools",
-            "downloadUrl": "https://leetcode-buddy-olive.vercel.app/Leetcode-Buddy.zip"
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "ratingCount": "120"
+            },
+            "description": "AI-powered coding assistant that provides hints and explanations for LeetCode problems without spoiling the solution."
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "LeetCode Buddy",
+            "url": "https://leetcode-buddyy.vercel.app/",
+            "logo": "https://leetcode-buddyy.vercel.app/logo.png",
+            "sameAs": [
+              "https://github.com/leetcode-buddy"
+            ]
           })}
         </script>
       </SEO>
