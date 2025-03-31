@@ -55,7 +55,7 @@ export default function CTA() {
         <AnimatedElement>
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to <span className="text-gradient">Level Up</span> Your LeetCode Experience?
+              Download Now and <span className="text-gradient">Transform</span> Your Practice
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto mb-8">
               Install the LeetCode Buddy extension and transform how you practice coding problems

@@ -1,4 +1,3 @@
-
 import { Check } from "lucide-react";
 import AnimatedElement from "./AnimatedElement";
 
@@ -44,7 +43,7 @@ export default function HowItWorks() {
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Simple Setup, <span className="text-gradient">Powerful Results</span>
+              Easy Installation, <span className="text-gradient">Immediate Impact</span>
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
               Get started in minutes and transform your LeetCode practice sessions immediately.

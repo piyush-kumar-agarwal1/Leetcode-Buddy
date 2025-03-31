@@ -25,7 +25,7 @@ export default function Hero() {
 
             <AnimatedElement delay={1} animation="fade-in-up">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
-                Solve LeetCode Problems <span className="text-gradient">Faster</span>
+                LeetCode Buddy: AI-Powered <span className="text-gradient">Coding Assistant</span>
               </h1>
             </AnimatedElement>
 

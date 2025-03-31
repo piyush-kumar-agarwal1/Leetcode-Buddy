@@ -42,7 +42,7 @@ export default function ProblemSection() {
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Struggling with LeetCode <span className="text-gradient">Challenges?</span>
+              Common Interview Prep <span className="text-gradient">Difficulties</span>
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
               We've all been there. Technical interviews are stressful, and LeetCode problems can be overwhelming.

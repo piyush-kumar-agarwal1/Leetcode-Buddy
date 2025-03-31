@@ -73,7 +73,7 @@ export default function Testimonials() {
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              From Our <span className="text-gradient">Users</span>
+              Success Stories from <span className="text-gradient">Real Developers</span>
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
               Hear from developers who have transformed their coding practice with LeetCode Buddy.

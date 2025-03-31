@@ -1,11 +1,10 @@
-
 import { Code, Lightbulb, Zap, BarChart } from "lucide-react";
 import AnimatedElement from "./AnimatedElement";
 
 const features = [
   {
     icon: <Lightbulb size={24} className="text-leetamber-400" />,
-    title: "Smart Hints",
+    title: "Step-by-Step Progressive Hints",
     description: "Get contextual hints that guide you toward the solution without spoiling the problem.",
     code: `function hint() {
   // Try using a hash map to store 
@@ -15,7 +14,7 @@ const features = [
   },
   {
     icon: <Code size={24} className="text-leetpurple-400" />,
-    title: "Code Optimization",
+    title: "Smart Code Review & Analysis",
     description: "Receive suggestions to improve your solution's time and space complexity.",
     code: `// Before: O(n²) time complexity
 for (let i = 0; i < nums.length; i++) {
@@ -32,7 +31,7 @@ for (let i = 0; i < nums.length; i++) {
   },
   {
     icon: <Zap size={24} className="text-leetteal-400" />,
-    title: "Instant Explanation",
+    title: "Detailed Algorithm Explanations",
     description: "Get line-by-line explanations of working solutions after you solve the problem.",
     code: `// This uses dynamic programming
 // with memoization to avoid
@@ -67,7 +66,7 @@ export default function Features() {
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Everything You Need to <span className="text-gradient">Excel</span>
+              Key Features to <span className="text-gradient">Accelerate Learning</span>
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
               Our extension enhances your LeetCode experience with tools designed to help you learn and improve faster.

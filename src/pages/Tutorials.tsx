@@ -78,9 +78,9 @@ export default function Tutorials() {
                   {tutorial.difficulty}
                 </span>
               </div>
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-leetamber-400 transition-colors">
+              <h2 className="text-lg font-semibold mb-2 group-hover:text-leetamber-400 transition-colors">
                 {tutorial.title}
-              </h3>
+              </h2>
               <p className="text-gray-300 text-sm">{tutorial.description}</p>
               
               <button className="mt-4 text-sm font-medium text-leetamber-400 hover:text-leetamber-300 flex items-center gap-1">
