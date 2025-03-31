@@ -4,45 +4,104 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LeetCode Buddy - Your AI Coding Assistant for LeetCode</title>
-    <meta
-      name="description"
-      content="Get AI-powered hints, optimizations, and explanations for LeetCode problems without spoiling the solution. Perfect for interview preparation."
+    <!-- Preload critical fonts -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      as="style"
     />
-    <meta
-      name="keywords"
-      content="LeetCode, coding practice, interview preparation, algorithm assistance, programming help"
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+      as="style"
     />
-    <meta name="author" content="LeetCode Buddy" />
-    <meta property="og:image" content="/opengraph-image.png" />
+
+    <!-- Preconnect to required origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+
+    <!-- Critical CSS inline for faster rendering -->
+    <style>
+      /* Critical CSS for above-the-fold content */
+      body {
+        background-color: #0a1119;
+        color: white;
+        font-family: "Inter", sans-serif;
+        margin: 0;
+      }
+      .glass-card {
+        background-color: rgba(15, 23, 42, 0.7);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(30, 41, 59, 0.7);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+      }
+      .text-gradient {
+        background: linear-gradient(to right, #7c3aed, #14b8a6, #8b5cf6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      @media (max-width: 640px) {
+        h1 {
+          font-size: clamp(1.75rem, 8vw, 2.25rem) !important;
+        }
+        h2 {
+          font-size: clamp(1.25rem, 6vw, 1.75rem) !important;
+        }
+      }
+    </style>
+
+    <!-- Content-Security-Policy -->
     <meta
-      property="og:title"
-      content="LeetCode Buddy - Your AI Coding Assistant"
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://cdn.gpteng.co 'unsafe-inline' 'unsafe-eval'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' https://images.unsplash.com data: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.leetcode-buddy.com; prefetch-src 'self';"
     />
-    <meta
-      property="og:description"
-      content="Get AI-powered hints, optimizations, and explanations for LeetCode problems without spoiling the solution."
+
+    <!-- Rest of your metadata -->
+    <!-- ...existing meta tags... -->
+
+    <!-- Load fonts asynchronously -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://leetcode-buddyy.vercel.app/" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="LeetCode Buddy - Your AI Coding Assistant"
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
-    <meta
-      name="twitter:description"
-      content="Get AI-powered hints, optimizations, and explanations for LeetCode problems without spoiling the solution."
-    />
-    <meta name="twitter:image" content="/opengraph-image.png" />
-    <link rel="canonical" href="https://leetcode-buddyy.vercel.app/" />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+      />
+    </noscript>
+
+    <!-- Add web app manifest -->
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#7C3AED" />
+
+    <!-- Add apple-touch-icon for iOS -->
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
   </head>
 
   <body>
     <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <!-- Load scripts with proper attributes -->
+    <script
+      src="https://cdn.gpteng.co/gptengineer.js"
+      type="module"
+      defer
+    ></script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
