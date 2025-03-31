@@ -1,5 +1,6 @@
 import PageLayout from "../components/PageLayout";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function About() {
   return (
@@ -107,6 +108,17 @@ export default function About() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Learn More Section */}
+        <div className="mt-12 bg-leetblue-800/30 p-6 rounded-lg border border-leetblue-700">
+          <h3 className="text-xl font-semibold mb-3">Learn More</h3>
+          <p className="text-gray-300 mb-4">
+            Want to see LeetCode Buddy in action? Check out our <Link to="/documentation" className="text-leetpurple-400 hover:underline">documentation</Link> or watch our <Link to="/tutorials" className="text-leetpurple-400 hover:underline">step-by-step tutorials</Link>.
+          </p>
+          <p className="text-gray-300">
+            Have questions? Browse our <Link to="/faq" className="text-leetpurple-400 hover:underline">frequently asked questions</Link> or <Link to="/contact" className="text-leetpurple-400 hover:underline">reach out directly</Link>.
+          </p>
         </div>
       </div>
     </PageLayout>

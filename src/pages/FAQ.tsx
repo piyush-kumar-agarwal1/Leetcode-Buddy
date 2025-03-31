@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PageLayout from "../components/PageLayout";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import SEO from "../components/SEO";
 
 export default function FAQ() {
   const faqs = [
@@ -67,6 +68,25 @@ export default function FAQ() {
       title="Frequently Asked Questions" 
       subtitle="Find answers to common questions about LeetCode Buddy"
     >
+      <SEO 
+        title="Frequently Asked Questions" 
+        description="Find answers to common questions about LeetCode Buddy extension features, installation, and troubleshooting."
+      />
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": filteredFaqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer
+            }
+          }))
+        })}
+      </script>
+
       <div className="mb-8">
         <div className="relative">
           <input

@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Clock, BrainCircuit, Code } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import AnimatedElement from './AnimatedElement';
 
 const ProblemCard = ({ 
@@ -46,6 +47,9 @@ export default function ProblemSection() {
             <p className="text-gray-300 max-w-2xl mx-auto">
               We've all been there. Technical interviews are stressful, and LeetCode problems can be overwhelming.
               Here's why developers need better tools:
+            </p>
+            <p className="mt-4">
+              Struggling with algorithms? <Link to="/documentation#algorithms" className="text-leetpurple-400 hover:underline">Learn about our algorithm hints</Link> or check out our <Link to="/blog" className="text-leetpurple-400 hover:underline">latest problem-solving tips</Link>.
             </p>
           </div>
         </AnimatedElement>
